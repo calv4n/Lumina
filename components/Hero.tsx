@@ -1,12 +1,19 @@
+"use client";
+
 import type { Language } from "./types";
 
 export function Hero({ language }: { language: Language }) {
+  const title =
+    language === "de"
+      ? "Dein Unternehmen. Digitaler. Intelligenter. Zukunftsbereit."
+      : "Your business. More digital. Smarter. Ready for the future.";
+
   return (
     <section className="hero" id="home">
       <div className="wrap">
         <div className="hero-grid">
           <div>
-            <p className="eyebrow">
+            <p className="eyebrow scroll-reveal-item">
               <span className="dot"></span>
               <span>
                 {language === "de"
@@ -14,37 +21,35 @@ export function Hero({ language }: { language: Language }) {
                   : "Swiss Agency"}
               </span>
             </p>
-            <h1>
-              {language === "de"
-                ? "Dein Unternehmen. Digitaler. Intelligenter. Zukunftsbereit."
-                : "Your business. More digital. Smarter. Ready for the future."}
-            </h1>
-            <p className="hero-copy">
-              {language === "de"
-                ? "Dein Unternehmen hat Zukunft. Wir gestalten sie mit modernen Websites, intelligenter KI und Automationen."
-                : "Your business has a future. We shape it with modern websites, intelligent AI, and automations."}
-            </p>
-            <div className="buttons">
-              <a className="button" href="#kontakt">
-                <span>
-                  {language === "de"
-                    ? "Projekt besprechen"
-                    : "Discuss your project"}
-                </span>
-                <span className="arrow-icon" aria-hidden="true">
-                  north_east
-                </span>
-              </a>
-              <a className="button secondary" href="#leistungen">
-                <span>
-                  {language === "de"
-                    ? "Leistungen entdecken"
-                    : "Explore services"}
-                </span>
-                <span className="arrow-icon" aria-hidden="true">
-                  south
-                </span>
-              </a>
+            <h1 className="scroll-reveal">{title}</h1>
+            <div className="hero-support scroll-reveal-item">
+              <p className="hero-copy">
+                {language === "de"
+                  ? "Dein Unternehmen hat Zukunft. Wir gestalten sie mit modernen Websites, intelligenter KI und Automationen."
+                  : "Your business has a future. We shape it with modern websites, intelligent AI, and automations."}
+              </p>
+              <div className="buttons">
+                <a className="button" href="#kontakt">
+                  <span>
+                    {language === "de"
+                      ? "Projekt besprechen"
+                      : "Discuss your project"}
+                  </span>
+                  <span className="arrow-icon" aria-hidden="true">
+                    north_east
+                  </span>
+                </a>
+                <a className="button secondary" href="#leistungen">
+                  <span>
+                    {language === "de"
+                      ? "Leistungen entdecken"
+                      : "Explore services"}
+                  </span>
+                  <span className="arrow-icon" aria-hidden="true">
+                    south
+                  </span>
+                </a>
+              </div>
             </div>
           </div>
           <div className="visual" aria-hidden="true">
@@ -61,7 +66,7 @@ export function Hero({ language }: { language: Language }) {
             </div>
           </div>
         </div>
-        <div className="hero-foot">
+        <div className="hero-foot scroll-reveal-item">
           <span>
             {language === "de"
               ? "Websites / Digitalisierung / KI"

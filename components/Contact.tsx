@@ -2,7 +2,7 @@ import type { Language } from "./types";
 
 export function Contact({ language }: { language: Language }) {
   return (
-    <section className="contact" id="kontakt">
+    <section className="contact scroll-reveal" id="kontakt">
       <div className="wrap contact-grid">
         <div>
           <p className="eyebrow">{"LUMINA / LET'S TALK"}</p>

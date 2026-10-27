@@ -2,7 +2,7 @@ import type { Language } from "./types";
 
 export function Services({ language }: { language: Language }) {
   return (
-    <section className="section" id="leistungen">
+    <section className="section scroll-reveal" id="leistungen">
       <div className="wrap">
         <p className="eyebrow">
           <span className="dot"></span>
@@ -23,7 +23,7 @@ export function Services({ language }: { language: Language }) {
           </p>
         </div>
         <div className="cards">
-          <article className="card">
+          <article className="card scroll-reveal-item">
             <div className="card-top">
               <span>{"01 / WEB"}</span>
               <span className="icon arrow-icon" aria-hidden="true">
@@ -44,7 +44,7 @@ export function Services({ language }: { language: Language }) {
               <span>{"Responsive"}</span>
             </div>
           </article>
-          <article className="card">
+          <article className="card scroll-reveal-item">
             <div className="card-top">
               <span>{"02 / DIGITAL"}</span>
               <span className="icon arrow-icon" aria-hidden="true">
@@ -65,7 +65,7 @@ export function Services({ language }: { language: Language }) {
               <span>{"Workflows"}</span>
             </div>
           </article>
-          <article className="card">
+          <article className="card scroll-reveal-item">
             <div className="card-top">
               <span>{"03 / AI"}</span>
               <span className="icon arrow-icon" aria-hidden="true">
