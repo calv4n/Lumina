@@ -21,7 +21,9 @@ export function Approach({ language }: { language: Language }) {
           </p>
           <a className="button secondary" href="#ablauf">
             <span>{language === "de" ? "So arbeiten wir" : "How we work"}</span>
-            {" ↗"}
+            <span className="arrow-icon" aria-hidden="true">
+              north_east
+            </span>
           </a>
         </div>
         <div>

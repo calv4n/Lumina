@@ -56,7 +56,9 @@ export function Header({
             <span>
               {language === "de" ? "Projekt besprechen" : "Let's talk"}
             </span>
-            {" ↗"}
+            <span className="arrow-icon" aria-hidden="true">
+              north_east
+            </span>
           </a>
           <button
             className="menu"

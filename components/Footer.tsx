@@ -10,7 +10,10 @@ export function Footer({ language }: { language: Language }) {
         </a>
         <span>{"© 2026 LUMINA · DIGITAL STUDIO"}</span>
         <a href="#home">
-          {language === "de" ? "Zurück nach oben ↑" : "Back to top ↑"}
+          {language === "de" ? "Zurück nach oben" : "Back to top"} {" "}
+          <span className="arrow-icon" aria-hidden="true">
+            north
+          </span>
         </a>
       </div>
     </footer>

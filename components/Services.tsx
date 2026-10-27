@@ -26,7 +26,9 @@ export function Services({ language }: { language: Language }) {
           <article className="card">
             <div className="card-top">
               <span>{"01 / WEB"}</span>
-              <span className="icon">{"↗"}</span>
+              <span className="icon arrow-icon" aria-hidden="true">
+                north_east
+              </span>
             </div>
             <h3>
               {language === "de" ? "Websites & Design" : "Websites & design"}
@@ -45,7 +47,9 @@ export function Services({ language }: { language: Language }) {
           <article className="card">
             <div className="card-top">
               <span>{"02 / DIGITAL"}</span>
-              <span className="icon">{"✳"}</span>
+              <span className="icon arrow-icon" aria-hidden="true">
+                flare
+              </span>
             </div>
             <h3>
               {language === "de" ? "Digitale Lösungen" : "Digital solutions"}
@@ -64,7 +68,9 @@ export function Services({ language }: { language: Language }) {
           <article className="card">
             <div className="card-top">
               <span>{"03 / AI"}</span>
-              <span className="icon">{"✦"}</span>
+              <span className="icon arrow-icon" aria-hidden="true">
+                auto_awesome
+              </span>
             </div>
             <h3>{language === "de" ? "KI & Automation" : "AI & automation"}</h3>
             <p>

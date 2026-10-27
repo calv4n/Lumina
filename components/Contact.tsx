@@ -25,7 +25,9 @@ export function Contact({ language }: { language: Language }) {
             <span>
               {language === "de" ? "Nachricht schreiben" : "Send a message"}
             </span>
-            {" ↗"}
+            <span className="arrow-icon" aria-hidden="true">
+              north_east
+            </span>
           </a>
         </div>
       </div>

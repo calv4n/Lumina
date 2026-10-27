@@ -31,7 +31,9 @@ export function Hero({ language }: { language: Language }) {
                     ? "Projekt besprechen"
                     : "Discuss your project"}
                 </span>
-                <span>{"↗"}</span>
+                <span className="arrow-icon" aria-hidden="true">
+                  north_east
+                </span>
               </a>
               <a className="button secondary" href="#leistungen">
                 <span>
@@ -39,7 +41,9 @@ export function Hero({ language }: { language: Language }) {
                     ? "Leistungen entdecken"
                     : "Explore services"}
                 </span>
-                {" ↓"}
+                <span className="arrow-icon" aria-hidden="true">
+                  south
+                </span>
               </a>
             </div>
           </div>
@@ -69,7 +73,10 @@ export function Hero({ language }: { language: Language }) {
               : "For ideas that go further."}
           </span>
           <a href="#leistungen">
-            {language === "de" ? "Entdecken ↓" : "Explore ↓"}
+            {language === "de" ? "Entdecken" : "Explore"} {" "}
+            <span className="arrow-icon" aria-hidden="true">
+              south
+            </span>
           </a>
         </div>
       </div>
