@@ -2,7 +2,7 @@ import type { Language } from "./types";
 
 export function Process({ language }: { language: Language }) {
   return (
-    <section className="section" id="ablauf">
+    <section className="section scroll-reveal" id="ablauf">
       <div className="wrap">
         <p className="eyebrow">
           <span className="dot"></span>
@@ -23,7 +23,7 @@ export function Process({ language }: { language: Language }) {
           </p>
         </div>
         <div className="steps">
-          <div className="step">
+          <div className="step scroll-reveal-item">
             <span className="num">{"01 / DISCOVER"}</span>
             <h3>{language === "de" ? "Kennenlernen" : "Discover"}</h3>
             <p>
@@ -32,7 +32,7 @@ export function Process({ language }: { language: Language }) {
                 : "We talk about your idea, your goals and the challenges we can solve together."}
             </p>
           </div>
-          <div className="step">
+          <div className="step scroll-reveal-item">
             <span className="num">{"02 / CREATE"}</span>
             <h3>
               {language === "de"
@@ -45,7 +45,7 @@ export function Process({ language }: { language: Language }) {
                 : "We turn your requirements into a concept and build your digital solution step by step."}
             </p>
           </div>
-          <div className="step">
+          <div className="step scroll-reveal-item">
             <span className="num">{"03 / LAUNCH"}</span>
             <h3>
               {language === "de" ? "Starten & weiterdenken" : "Launch & evolve"}

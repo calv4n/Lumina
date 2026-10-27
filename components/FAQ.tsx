@@ -2,7 +2,7 @@ import type { Language } from "./types";
 
 export function FAQ({ language }: { language: Language }) {
   return (
-    <section className="section faq" id="faq">
+    <section className="section faq scroll-reveal" id="faq">
       <div className="wrap faq-layout">
         <div>
           <p className="eyebrow">

@@ -10,6 +10,7 @@ import { Process } from "../components/Process";
 import { FAQ } from "../components/FAQ";
 import { Contact } from "../components/Contact";
 import { Footer } from "../components/Footer";
+import { ScrollReveal } from "../components/ScrollReveal";
 
 export default function Home() {
   const [language, setLanguage] = useState<Language>("de");
@@ -39,6 +40,7 @@ export default function Home() {
 
   return (
     <>
+      <ScrollReveal />
       <a className="skip" href="#main">
         {language === "de" ? "Zum Inhalt springen" : "Skip to content"}
       </a>

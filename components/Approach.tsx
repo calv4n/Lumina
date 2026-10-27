@@ -2,7 +2,7 @@ import type { Language } from "./types";
 
 export function Approach({ language }: { language: Language }) {
   return (
-    <section className="section why" id="ansatz">
+    <section className="section why scroll-reveal" id="ansatz">
       <div className="wrap why-layout">
         <div>
           <p className="eyebrow">
@@ -27,7 +27,7 @@ export function Approach({ language }: { language: Language }) {
           </a>
         </div>
         <div>
-          <div className="principle">
+          <div className="principle scroll-reveal-item">
             <span className="num">{"01 /"}</span>
             <div>
               <strong>
@@ -40,7 +40,7 @@ export function Approach({ language }: { language: Language }) {
               </p>
             </div>
           </div>
-          <div className="principle">
+          <div className="principle scroll-reveal-item">
             <span className="num">{"02 /"}</span>
             <div>
               <strong>
@@ -55,7 +55,7 @@ export function Approach({ language }: { language: Language }) {
               </p>
             </div>
           </div>
-          <div className="principle">
+          <div className="principle scroll-reveal-item">
             <span className="num">{"03 /"}</span>
             <div>
               <strong>
