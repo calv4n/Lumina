@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://lumina.calvinpfrender.dev"),
   title: "Lumina — Websites & intelligente Lösungen",
   description:
     "Lumina entwickelt Websites, digitale Lösungen und KI-Automationen für Unternehmen.",
