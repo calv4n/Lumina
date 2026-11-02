@@ -1,58 +1,46 @@
-import type { Language } from "./types";
+"use client";
 
-export function FAQ({ language }: { language: Language }) {
+import { useState } from "react";
+import { Copy } from "./Copy";
+import { faq } from "../content/home";
+
+export function FAQ() {
+  const [open, setOpen] = useState<number | null>(null);
+
   return (
-    <section className="section faq scroll-reveal" id="faq">
-      <div className="wrap faq-layout">
-        <div>
-          <p className="eyebrow">
-            <span className="dot"></span>
-            {"FAQ"}
-          </p>
-          <h2>{language === "de" ? "Noch Fragen?" : "Questions?"}</h2>
-          <p className="why-copy">
-            {language === "de"
-              ? "Ein paar Antworten für deinen ersten Schritt."
-              : "A few answers to help you get started."}
+    <section className="section" id="faq">
+      <div className="col">
+        <div className="section-head scroll-reveal">
+          <h2>{faq.title}</h2>
+          <p className="sub">
+            <Copy text={faq.sub} />
           </p>
         </div>
         <div className="faq-list">
-          <details>
-            <summary>
-              {language === "de"
-                ? "Für welche Projekte kann ich mich melden?"
-                : "What kind of projects can I get in touch about?"}
-            </summary>
-            <p>
-              {language === "de"
-                ? "Ob neue Website, eine digitale Anwendung oder eine Idee für eine Automation: Erzähl uns, was du vorhast. Gemeinsam finden wir heraus, wie wir helfen können."
-                : "Whether it's a new website, a digital application or an idea for automation, tell us what you have in mind. Together we'll see how we can help."}
-            </p>
-          </details>
-          <details>
-            <summary>
-              {language === "de"
-                ? "Muss ich bereits ein fertiges Konzept haben?"
-                : "Do I need a complete plan already?"}
-            </summary>
-            <p>
-              {language === "de"
-                ? "Nein. Eine grobe Idee oder eine Herausforderung reicht als Ausgangspunkt. Die Details erarbeiten wir gemeinsam."
-                : "No. A rough idea or a challenge is enough to get started. We'll work out the details together."}
-            </p>
-          </details>
-          <details>
-            <summary>
-              {language === "de"
-                ? "Wie starten wir?"
-                : "How do we get started?"}
-            </summary>
-            <p>
-              {language === "de"
-                ? "Schreib uns eine kurze Nachricht über dein Vorhaben. Danach besprechen wir deine Ziele und mögliche nächste Schritte."
-                : "Send us a short message about your project. We'll then discuss your goals and possible next steps."}
-            </p>
-          </details>
+          {faq.items.map((item, index) => {
+            const isOpen = open === index;
+            return (
+              <div className={isOpen ? "faq is-open" : "faq"} key={item.q}>
+                <button
+                  type="button"
+                  aria-expanded={isOpen}
+                  onClick={() => setOpen(isOpen ? null : index)}
+                >
+                  <span>{item.q}</span>
+                  <span className="faq-symbol" aria-hidden="true">
+                    {isOpen ? "–" : "+"}
+                  </span>
+                </button>
+                <div className="faq-panel">
+                  <div className="faq-panel-inner">
+                    <p>
+                      <Copy text={item.a} />
+                    </p>
+                  </div>
+                </div>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>

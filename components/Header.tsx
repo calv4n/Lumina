@@ -1,85 +1,108 @@
-import type { Language } from "./types";
+"use client";
 
-type HeaderProps = {
-  language: Language;
-  menuOpen: boolean;
-  setMenuOpen: (open: boolean) => void;
-  toggleLanguage: () => void;
-};
+import { useEffect, useState } from "react";
+import { nav } from "../content/home";
 
-export function Header({
-  language,
-  menuOpen,
-  setMenuOpen,
-  toggleLanguage,
-}: HeaderProps) {
+export function Header() {
+  const [open, setOpen] = useState(false);
+  const [theme, setTheme] = useState<"dark" | "light">("dark");
+
+  useEffect(() => {
+    setTheme(
+      document.documentElement.dataset.theme === "light" ? "light" : "dark",
+    );
+  }, []);
+
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setOpen(false);
+    };
+    document.addEventListener("keydown", onKey);
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.removeEventListener("keydown", onKey);
+      document.body.style.overflow = "";
+    };
+  }, [open]);
+
+  function toggleTheme() {
+    const next = theme === "dark" ? "light" : "dark";
+    setTheme(next);
+    if (next === "light") document.documentElement.dataset.theme = "light";
+    else delete document.documentElement.dataset.theme;
+    try {
+      localStorage.setItem("lumina-theme", next);
+    } catch {
+      /* Preference is optional. */
+    }
+  }
+
+  const themeLabel =
+    theme === "dark"
+      ? "Auf helles Farbschema wechseln"
+      : "Auf dunkles Farbschema wechseln";
+
   return (
-    <header>
-      <div className="wrap nav">
-        <a href="#home" className="brand" aria-label="Lumina Home">
-          {"lumina"}
-          <span>{"."}</span>
+    <header className="site-header">
+      <a className="brand pill" href="#top">
+        lumina<span className="brand-dot">.</span>
+      </a>
+      <button
+        className="icon-btn theme-btn"
+        type="button"
+        onClick={toggleTheme}
+        aria-label={themeLabel}
+        suppressHydrationWarning
+      >
+        <span aria-hidden="true">{theme === "dark" ? "☀" : "☾"}</span>
+      </button>
+      <nav className="nav-cluster pill" aria-label="Hauptnavigation">
+        {nav.map((item) => (
+          <a key={item.href} href={item.href}>
+            {item.label}
+          </a>
+        ))}
+        <a className="btn btn-yellow nav-cta" href="#gratis-demo">
+          Gratis-Demo
         </a>
-        <nav
-          id="navigation"
-          aria-label="Hauptnavigation"
-          className={menuOpen ? "navlinks open" : "navlinks"}
-          onClick={() => setMenuOpen(false)}
+      </nav>
+      <div className="nav-mobile pill">
+        <button
+          className="icon-btn menu-btn"
+          type="button"
+          aria-expanded={open}
+          aria-controls="mobile-nav"
+          aria-label={open ? "Menü schliessen" : "Menü öffnen"}
+          onClick={() => setOpen((value) => !value)}
         >
-          <a href="#leistungen">
-            {language === "de" ? "Leistungen" : "Services"}
-          </a>
-          <a href="#ansatz">
-            {language === "de" ? "Unser Ansatz" : "Our approach"}
-          </a>
-          <a href="#ablauf">
-            {language === "de" ? "Zusammenarbeit" : "How we work"}
-          </a>
-          <a href="#faq">{"FAQ"}</a>
-        </nav>
-        <div className="navright">
+          <span className={open ? "burger is-open" : "burger"} />
+        </button>
+        <a className="btn btn-yellow nav-cta" href="#gratis-demo">
+          Gratis-Demo
+        </a>
+      </div>
+      {open ? (
+        <div className="nav-panel" id="mobile-nav">
+          <nav aria-label="Mobilnavigation" onClick={() => setOpen(false)}>
+            {nav.map((item) => (
+              <a key={item.href} href={item.href}>
+                {item.label}
+              </a>
+            ))}
+            <a className="btn btn-yellow" href="#gratis-demo">
+              Gratis-Demo sichern
+            </a>
+          </nav>
           <button
-            className="lang"
+            className="text-link theme-link"
             type="button"
-            onClick={toggleLanguage}
-            aria-label={
-              language === "de"
-                ? "Switch language to English"
-                : "Sprache auf Deutsch wechseln"
-            }
+            onClick={toggleTheme}
           >
-            <span className={language === "de" ? "de" : "de inactive"}>DE</span>{" "}
-            /{" "}
-            <span className={language === "en" ? "en" : "en inactive"}>EN</span>
-          </button>
-          <a className="navcta" href="#kontakt">
-            <span>
-              {language === "de" ? "Projekt besprechen" : "Let's talk"}
-            </span>
-            <span className="arrow-icon" aria-hidden="true">
-              north_east
-            </span>
-          </a>
-          <button
-            className="menu"
-            aria-controls="navigation"
-            type="button"
-            aria-expanded={menuOpen}
-            aria-label={
-              language === "de"
-                ? menuOpen
-                  ? "Menü schliessen"
-                  : "Menü öffnen"
-                : menuOpen
-                  ? "Close menu"
-                  : "Open menu"
-            }
-            onClick={() => setMenuOpen(!menuOpen)}
-          >
-            {menuOpen ? "×" : "☰"}
+            {themeLabel}
           </button>
         </div>
-      </div>
+      ) : null}
     </header>
   );
 }

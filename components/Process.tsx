@@ -1,62 +1,51 @@
-import type { Language } from "./types";
+import { Copy } from "./Copy";
+import { IconDomain, IconHelp, IconPay, IconSee, Starburst } from "./Icons";
+import { benefits, process } from "../content/home";
 
-export function Process({ language }: { language: Language }) {
+const icons = {
+  see: IconSee,
+  pay: IconPay,
+  domain: IconDomain,
+  help: IconHelp,
+};
+
+export function Process() {
   return (
-    <section className="section scroll-reveal" id="ablauf">
-      <div className="wrap">
-        <p className="eyebrow">
-          <span className="dot"></span>
-          <span>
-            {language === "de" ? "Zusammenarbeit" : "Working together"}
-          </span>
-        </p>
-        <div className="section-head">
-          <h2>
-            {language === "de"
-              ? "Ein guter Anfang. Ein klarer Weg."
-              : "A good start. A clear path."}
-          </h2>
-          <p className="section-intro">
-            {language === "de"
-              ? "Von der ersten Frage bis zum fertigen Ergebnis: transparent, persönlich und auf dein Projekt abgestimmt."
-              : "From the first question to the finished result: transparent, personal and tailored to your project."}
-          </p>
+    <section className="section" id="ablauf">
+      <div className="col">
+        <div className="section-head scroll-reveal">
+          <h2>{process.title}</h2>
         </div>
-        <div className="steps">
-          <div className="step scroll-reveal-item">
-            <span className="num">{"01 / DISCOVER"}</span>
-            <h3>{language === "de" ? "Kennenlernen" : "Discover"}</h3>
-            <p>
-              {language === "de"
-                ? "Wir sprechen über deine Idee, deine Ziele und die Herausforderungen, die wir lösen können."
-                : "We talk about your idea, your goals and the challenges we can solve together."}
-            </p>
-          </div>
-          <div className="step scroll-reveal-item">
-            <span className="num">{"02 / CREATE"}</span>
-            <h3>
-              {language === "de"
-                ? "Konzipieren & entwickeln"
-                : "Design & develop"}
-            </h3>
-            <p>
-              {language === "de"
-                ? "Aus den Anforderungen entsteht ein Konzept und daraus Schritt für Schritt deine digitale Lösung."
-                : "We turn your requirements into a concept and build your digital solution step by step."}
-            </p>
-          </div>
-          <div className="step scroll-reveal-item">
-            <span className="num">{"03 / LAUNCH"}</span>
-            <h3>
-              {language === "de" ? "Starten & weiterdenken" : "Launch & evolve"}
-            </h3>
-            <p>
-              {language === "de"
-                ? "Wir bringen dein Projekt an den Start und besprechen, wie es sich langfristig weiterentwickeln kann."
-                : "We launch your project and discuss how it can continue to evolve over time."}
-            </p>
-          </div>
+        <div className="process-grid stagger">
+          {process.steps.map((step) => (
+            <article
+              className={`step surface-${step.tone} scroll-reveal-item${step.tall ? " step-tall" : ""}`}
+              key={step.badge}
+            >
+              <span className="badge">{step.badge}</span>
+              {step.tall ? <Starburst /> : <span />}
+              <div>
+                <h3>{step.title}</h3>
+                <p>
+                  <Copy text={step.body} />
+                </p>
+              </div>
+            </article>
+          ))}
         </div>
+        <ul className="benefits">
+          {benefits.map((item) => {
+            const Icon = icons[item.icon];
+            return (
+              <li className="scroll-reveal-item" key={item.text}>
+                <Icon />
+                <p>
+                  <Copy text={item.text} />
+                </p>
+              </li>
+            );
+          })}
+        </ul>
       </div>
     </section>
   );

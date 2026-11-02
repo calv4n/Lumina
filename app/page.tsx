@@ -1,64 +1,42 @@
-"use client";
-
-import { useEffect, useState } from "react";
-import type { Language } from "../components/types";
+import { Audiences } from "../components/Audiences";
+import { Closing } from "../components/Closing";
+import { DemoForm } from "../components/DemoForm";
+import { FAQ } from "../components/FAQ";
+import { Footer } from "../components/Footer";
+import { Founder } from "../components/Founder";
 import { Header } from "../components/Header";
 import { Hero } from "../components/Hero";
-import { Services } from "../components/Services";
-import { Approach } from "../components/Approach";
+import { Intro } from "../components/Intro";
+import { Portfolio } from "../components/Portfolio";
+import { Pricing } from "../components/Pricing";
 import { Process } from "../components/Process";
-import { FAQ } from "../components/FAQ";
-import { Contact } from "../components/Contact";
-import { Footer } from "../components/Footer";
 import { ScrollReveal } from "../components/ScrollReveal";
+import { Services } from "../components/Services";
+import { WhyFree } from "../components/WhyFree";
 
 export default function Home() {
-  const [language, setLanguage] = useState<Language>("de");
-  const [menuOpen, setMenuOpen] = useState(false);
-
-  useEffect(() => {
-    try {
-      if (localStorage.getItem("lumina-language") === "en") setLanguage("en");
-    } catch {
-      /* The default remains available if storage is disabled. */
-    }
-  }, []);
-
-  useEffect(() => {
-    document.documentElement.lang = language;
-  }, [language]);
-
-  function toggleLanguage() {
-    const next = language === "de" ? "en" : "de";
-    setLanguage(next);
-    try {
-      localStorage.setItem("lumina-language", next);
-    } catch {
-      /* Optional preference. */
-    }
-  }
-
   return (
     <>
       <ScrollReveal />
       <a className="skip" href="#main">
-        {language === "de" ? "Zum Inhalt springen" : "Skip to content"}
+        Zum Inhalt springen
       </a>
-      <Header
-        language={language}
-        menuOpen={menuOpen}
-        setMenuOpen={setMenuOpen}
-        toggleLanguage={toggleLanguage}
-      />
+      <Header />
       <main id="main">
-        <Hero language={language} />
-        <Services language={language} />
-        <Approach language={language} />
-        <Process language={language} />
-        <FAQ language={language} />
-        <Contact language={language} />
+        <Hero />
+        <Intro />
+        <Process />
+        <Services />
+        <Audiences />
+        <WhyFree />
+        <Pricing />
+        <Portfolio />
+        <Founder />
+        <FAQ />
+        <Closing />
+        <DemoForm />
       </main>
-      <Footer language={language} />
+      <Footer />
     </>
   );
 }
