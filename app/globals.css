@@ -1,6 +1,11 @@
 /* Dark is the default. Light lives on [data-theme="light"] so every
    surface reads the same variables and can be switched without new colors. */
 :root {
+  /* Lumina Brand Kit v1.0: shared palette for the hero and its layers. */
+  --lm-ink: #171717;
+  --lm-paper: #ffffff;
+  --lm-grey-50: #f6f6f3;
+  --lm-grey-600: #65655f;
   --bg: #171717;
   --surface: #202020;
   --surface2: #262625;
@@ -23,8 +28,8 @@
   --card-light-fg: var(--ink);
   --card-dark-bg: var(--surface);
   --card-dark-fg: var(--text);
-  --hero-top: var(--bg);
-  --hero-bottom: color-mix(in srgb, var(--muted) 46%, var(--surface2));
+  --hero-top: var(--lm-ink);
+  --hero-bottom: var(--lm-grey-600);
   --glass: color-mix(in srgb, var(--muted) 28%, transparent);
   --soft: color-mix(in srgb, var(--text) 80%, transparent);
   --faint: color-mix(in srgb, var(--text) 48%, transparent);
@@ -49,8 +54,8 @@
   --card-light-fg: #ffffff;
   --card-dark-bg: var(--surface);
   --card-dark-fg: var(--text);
-  --hero-top: var(--bg);
-  --hero-bottom: var(--surface);
+  --hero-top: var(--lm-paper);
+  --hero-bottom: var(--lm-grey-50);
   --glass: color-mix(in srgb, var(--muted) 16%, var(--white));
   --soft: color-mix(in srgb, var(--text) 78%, transparent);
   --faint: color-mix(in srgb, var(--text) 48%, transparent);
@@ -417,6 +422,11 @@ h3,
   min-height: 40px;
 }
 
+.nav-cluster .nav-cta,
+.nav-mobile .nav-cta {
+  border-radius: 400px;
+}
+
 .nav-mobile {
   display: none;
   margin-left: auto;
@@ -511,7 +521,10 @@ h3,
 
 .hero-stack {
   position: relative;
-  margin: 24px 24px 64px;
+  isolation: isolate;
+  width: calc(100% - 48px);
+  max-width: 1440px;
+  margin: 24px auto 64px;
 }
 
 .hero-layer {
@@ -521,34 +534,40 @@ h3,
   height: 220px;
   border-radius: 40px;
   z-index: 0;
+  pointer-events: none;
 }
 
 .layer-a {
+  z-index: 3;
   width: calc(100% - 56px);
-  bottom: -14px;
-  background: var(--surface);
+  bottom: -8px;
+  background: color-mix(in srgb, var(--hero-bottom) 48%, var(--hero-top));
 }
 
 .layer-b {
+  z-index: 2;
   width: calc(100% - 112px);
-  bottom: -26px;
-  background: var(--surface2);
+  bottom: -16px;
+  background: color-mix(in srgb, var(--hero-bottom) 34%, var(--hero-top));
 }
 
 .layer-c {
+  z-index: 1;
   width: calc(100% - 168px);
-  bottom: -38px;
-  background: color-mix(in srgb, var(--line) 65%, var(--surface));
+  bottom: -24px;
+  background: color-mix(in srgb, var(--hero-bottom) 22%, var(--hero-top));
 }
 
 .hero-card {
   position: relative;
-  z-index: 1;
+  z-index: 4;
   min-height: min(816px, calc(100svh - 48px));
   border-radius: 40px;
   background: linear-gradient(
     180deg,
-    var(--hero-top) 51%,
+    var(--hero-top) 50%,
+    color-mix(in srgb, var(--hero-top) 68%, var(--hero-bottom)) 68%,
+    color-mix(in srgb, var(--hero-top) 26%, var(--hero-bottom)) 86%,
     var(--hero-bottom) 100%
   );
   display: flex;
@@ -1582,7 +1601,8 @@ html.motion-ready .scroll-reveal-item.is-visible {
     right: 12px;
   }
   .hero-stack {
-    margin: 12px 12px 40px;
+    width: calc(100% - 24px);
+    margin: 12px auto 40px;
   }
   .hero-card {
     min-height: calc(100svh - 24px);
@@ -1591,6 +1611,15 @@ html.motion-ready .scroll-reveal-item.is-visible {
   }
   .hero-layer {
     border-radius: 32px;
+  }
+  .layer-a {
+    width: calc(100% - 32px);
+  }
+  .layer-b {
+    width: calc(100% - 64px);
+  }
+  .layer-c {
+    width: calc(100% - 96px);
   }
   .hero-card h1 {
     font-size: 58px;
