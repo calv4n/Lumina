@@ -1,90 +1,36 @@
-"use client";
-
-import type { Language } from "./types";
-
-export function Hero({ language }: { language: Language }) {
-  const title =
-    language === "de"
-      ? "Dein Unternehmen. Digitaler. Intelligenter. Zukunftsbereit."
-      : "Your business. More digital. Smarter. Ready for the future.";
-
+import { hero } from "../content/home";
+export function Hero() {
   return (
-    <section className="hero" id="home">
-      <div className="wrap">
-        <div className="hero-grid">
-          <div>
-            <p className="eyebrow scroll-reveal-item">
-              <span className="dot"></span>
-              <span>
-                {language === "de"
-                  ? "Schweizer Agentur"
-                  : "Swiss Agency"}
+    <div className="hero-stack" id="top">
+      <div className="hero-layer layer-a" aria-hidden="true" />
+      <div className="hero-layer layer-b" aria-hidden="true" />
+      <div className="hero-layer layer-c" aria-hidden="true" />
+      <section className="hero-card" aria-labelledby="hero-title">
+        <div className="col hero-inner">
+          <h1 id="hero-title" className="rise">
+            {hero.headline.map((line, index) => (
+              <span
+                className={
+                  index === 2 ? "hero-line mark" : "hero-line line-mask"
+                }
+                key={line}
+              >
+                {line}
+                {index < hero.headline.length - 1 ? " " : ""}
               </span>
-            </p>
-            <h1 className="scroll-reveal">{title}</h1>
-            <div className="hero-support scroll-reveal-item">
-              <p className="hero-copy">
-                {language === "de"
-                  ? "Dein Unternehmen hat Zukunft. Wir gestalten sie mit modernen Websites, intelligenter KI und Automationen."
-                  : "Your business has a future. We shape it with modern websites, intelligent AI, and automations."}
-              </p>
-              <div className="buttons">
-                <a className="button" href="#kontakt">
-                  <span>
-                    {language === "de"
-                      ? "Projekt besprechen"
-                      : "Discuss your project"}
-                  </span>
-                  <span className="arrow-icon" aria-hidden="true">
-                    north_east
-                  </span>
-                </a>
-                <a className="button secondary" href="#leistungen">
-                  <span>
-                    {language === "de"
-                      ? "Leistungen entdecken"
-                      : "Explore services"}
-                  </span>
-                  <span className="arrow-icon" aria-hidden="true">
-                    south
-                  </span>
-                </a>
-              </div>
-            </div>
-          </div>
-          <div className="visual" aria-hidden="true">
-            <div className="visual-top">
-              <span>{"Lumina / Digital Studio"}</span>
-              <span>{"01 — 03"}</span>
-            </div>
-            <div className="orb">
-              <i></i>
-            </div>
-            <div className="visual-bottom">
-              <span>{"Design · Technology · AI"}</span>
-              <span>{"✳"}</span>
-            </div>
+            ))}
+          </h1>
+          <p className="hero-sub rise rise-2">{hero.sub}</p>
+          <div className="hero-actions rise rise-3">
+            <a className="btn btn-yellow" href="#kontakt">
+              {hero.primary}
+            </a>
+            <a className="link-quiet" href="#leistungen">
+              {hero.secondary}
+            </a>
           </div>
         </div>
-        <div className="hero-foot scroll-reveal-item">
-          <span>
-            {language === "de"
-              ? "Websites / Digitalisierung / KI"
-              : "Websites / Digitalisation / AI"}
-          </span>
-          <span>
-            {language === "de"
-              ? "Für Ideen, die weitergehen."
-              : "For ideas that go further."}
-          </span>
-          <a href="#leistungen">
-            {language === "de" ? "Entdecken" : "Explore"} {" "}
-            <span className="arrow-icon" aria-hidden="true">
-              south
-            </span>
-          </a>
-        </div>
-      </div>
-    </section>
+      </section>
+    </div>
   );
 }
