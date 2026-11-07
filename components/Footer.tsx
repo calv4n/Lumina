@@ -8,7 +8,7 @@ export function Footer() {
       <div className="col">
         <div className="footer-top">
           <div>
-            <a className="brand" href="#top">
+            <a className="brand" href="/#top">
               lumina<span className="brand-dot">.</span>
             </a>
             <p className="claim">
@@ -17,30 +17,15 @@ export function Footer() {
             <p className="footer-copy">{footer.copy}</p>
           </div>
           <nav aria-label="Footer">
-            {nav
-              .filter((item) =>
-                ["#leistungen", "#preise", "#faq"].includes(item.href),
-              )
-              .map((item) => (
-                <a key={item.href} href={item.href}>
-                  {item.label}
-                </a>
-              ))}
+            {nav.map((item) => (
+              <a key={item.href} href={`/${item.href}`}>
+                {item.label}
+              </a>
+            ))}
             <a href="/impressum">Impressum</a>
             <a href="/datenschutz">Datenschutz</a>
           </nav>
         </div>
-        <ul className="footer-placeholders">
-          <li>
-            <span className="ph">{footer.impressum}</span>
-          </li>
-          <li>
-            <span className="ph">{footer.privacy}</span>
-          </li>
-          <li>
-            <span className="ph">{footer.social}</span>
-          </li>
-        </ul>
         <div className="footer-bottom">
           <p>
             <EmailLink />

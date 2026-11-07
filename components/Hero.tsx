@@ -1,6 +1,4 @@
-import { ArrowDown } from "./Icons";
 import { hero } from "../content/home";
-
 export function Hero() {
   return (
     <div className="hero-stack" id="top">
@@ -10,39 +8,25 @@ export function Hero() {
       <section className="hero-card" aria-labelledby="hero-title">
         <div className="col hero-inner">
           <h1 id="hero-title" className="rise">
-            <span className="hero-line line-mask">
-              Deine<span className="desk-only"> Kunden</span>
-            </span>
-            <span className="hero-line line-mask mob-only">Kunden</span>
-            <span className="hero-line line-mask line-tight">suchen dich.</span>
-            <span className="hero-line">
-              Finden
-              <span className="mob-break" />
-              <span className="mark">andere.</span>
-            </span>
+            {hero.headline.map((line, index) => (
+              <span
+                className={
+                  index === 2 ? "hero-line mark" : "hero-line line-mask"
+                }
+                key={line}
+              >
+                {line}
+                {index < hero.headline.length - 1 ? " " : ""}
+              </span>
+            ))}
           </h1>
           <p className="hero-sub rise rise-2">{hero.sub}</p>
           <div className="hero-actions rise rise-3">
-            <a className="btn btn-yellow" href="#gratis-demo">
+            <a className="btn btn-yellow" href="#kontakt">
               {hero.primary}
             </a>
-            <a className="link-quiet" href="#preise">
+            <a className="link-quiet" href="#leistungen">
               {hero.secondary}
-            </a>
-            <span className="hero-rule" aria-hidden="true" />
-            <ul className="hero-facts">
-              {hero.badges.map((badge) => (
-                <li key={badge}>
-                  <span className="badge">{badge}</span>
-                </li>
-              ))}
-            </ul>
-            <a
-              className="icon-btn down-btn"
-              href="#statement"
-              aria-label="Weiter nach unten"
-            >
-              <ArrowDown />
             </a>
           </div>
         </div>

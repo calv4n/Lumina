@@ -45,7 +45,7 @@ export function Header() {
 
   return (
     <header className="site-header">
-      <a className="brand pill" href="#top">
+      <a className="brand pill" href="/#top">
         lumina<span className="brand-dot">.</span>
       </a>
       <button
@@ -59,12 +59,12 @@ export function Header() {
       </button>
       <nav className="nav-cluster pill" aria-label="Hauptnavigation">
         {nav.map((item) => (
-          <a key={item.href} href={item.href}>
+          <a key={item.href} href={`/${item.href}`}>
             {item.label}
           </a>
         ))}
-        <a className="btn btn-yellow nav-cta" href="#gratis-demo">
-          Gratis-Demo
+        <a className="btn btn-yellow nav-cta" href="/#kontakt">
+          Projekt besprechen
         </a>
       </nav>
       <div className="nav-mobile pill">
@@ -78,20 +78,24 @@ export function Header() {
         >
           <span className={open ? "burger is-open" : "burger"} />
         </button>
-        <a className="btn btn-yellow nav-cta" href="#gratis-demo">
-          Gratis-Demo
+        <a
+          className="btn btn-yellow nav-cta"
+          href="/#kontakt"
+          onClick={() => setOpen(false)}
+        >
+          Anfragen
         </a>
       </div>
       {open ? (
         <div className="nav-panel" id="mobile-nav">
           <nav aria-label="Mobilnavigation" onClick={() => setOpen(false)}>
             {nav.map((item) => (
-              <a key={item.href} href={item.href}>
+              <a key={item.href} href={`/${item.href}`}>
                 {item.label}
               </a>
             ))}
-            <a className="btn btn-yellow" href="#gratis-demo">
-              Gratis-Demo sichern
+            <a className="btn btn-yellow" href="/#kontakt">
+              Projekt besprechen
             </a>
           </nav>
           <button

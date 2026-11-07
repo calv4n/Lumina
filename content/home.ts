@@ -1,24 +1,30 @@
 export const meta = {
-  title: "Lumina – Websites für Schweizer KMU. Gratis-Demo sichern",
+  title: "Lumina – Websites, KI & Automationen für Schweizer KMU",
   description:
-    "Deine Kunden googeln. Finden sie dich? Lumina baut dir die Startseite deiner neuen Website gratis als Vorschau. Websites für Schweizer KMU ab CHF 119/Mt.",
-  imageAlt:
-    "Lumina – Deine Kunden suchen dich. Finden andere. Gratis-Demo deiner neuen Startseite.",
+    "Dein digitaler Partner für Websites, KI und Automationen. Lumina hilft Schweizer KMU, Kunden zu überzeugen, Abläufe zu vereinfachen und Potenzial zu nutzen.",
+  imageAlt: "Lumina – Deine Konkurrenz wartet nicht. Warum solltest du?",
 };
 
 export const nav = [
-  { href: "#leistungen", label: "Leistungen" },
-  { href: "#preise", label: "Preise" },
-  { href: "#ablauf", label: "Ablauf" },
-  { href: "#ueber-mich", label: "Über mich" },
-  { href: "#faq", label: "FAQ" },
+  {
+    href: "#ueber-uns",
+    label: "Über uns",
+  },
+  {
+    href: "#leistungen",
+    label: "Leistungen",
+  },
+  {
+    href: "#ablauf",
+    label: "Zusammenarbeit",
+  },
 ];
 
 export const hero = {
-  sub: "Wir bauen dir die Startseite deiner neuen Website. Gratis, als Vorschau. Gefällt sie dir nicht, kostet dich das keinen Franken.",
-  primary: "Gratis-Demo sichern",
-  secondary: "Preise ansehen",
-  badges: ["Gratis-Demo", "Keine Verpflichtung", "Schweizer KMU"],
+  headline: ["Deine Konkurrenz", "wartet nicht.", "Warum solltest du?"],
+  sub: "Websites, KI und Automationen, die dein Unternehmen voranbringen. Wir machen aus digitalen Möglichkeiten echte Wettbewerbsvorteile.",
+  primary: "Jetzt Vorsprung sichern",
+  secondary: "Leistungen entdecken",
 };
 
 export const introWords: { text: string; accent?: boolean }[] = [
@@ -111,34 +117,19 @@ export const benefits = [
 ];
 
 export const services = {
-  title: "Leistungen",
-  sub: "Alles, was deine Website braucht, damit sie Kunden bringt. Nicht nur gut aussieht.",
-  toolsNote:
-    "[ZU BESTÄTIGEN: Liste der Tools, z. B. bexio, Google, Next.js, Vercel]",
+  title: "Weniger Aufwand. Mehr Möglichkeiten.",
   items: [
     {
-      title: "Webdesign, das verkauft",
-      body: "Modern, schnell und auf dem Handy perfekt. Jede Seite ist darauf gebaut, dass Besucher anrufen, schreiben oder buchen. Nicht für einen Design-Award, sondern für deinen Umsatz. Ohne Baukasten-Look, den deine Kunden schon zehnmal gesehen haben.",
+      title: "Websites",
+      body: "Websites, die nicht nur gut aussehen, sondern Vertrauen schaffen und neue Kunden überzeugen.",
     },
     {
-      title: "Hosting und Wartung inklusive",
-      body: "Hosting in der Schweiz oder EU, SSL, Updates, Sicherheits-Monitoring und Backups sind im Monatspreis drin. Änderungszeit auch. Du rufst an oder schreibst, wir passen an. Keine Überraschungsrechnung, kein Plugin-Chaos, kein «das müsste mal jemand machen».",
+      title: "Automationen",
+      body: "Wiederkehrende Aufgaben automatisieren, Zeit sparen und interne Abläufe vereinfachen.",
     },
     {
-      title: "Gefunden werden auf Google",
-      body: "SEO-Grundlagen auf jeder Seite, Sitemap, Google Search Console und eine Besucherstatistik ohne Cookies. Dazu auf Wunsch die Pflege deines Google-Profils: zwei Beiträge im Monat und Antworten auf Bewertungen. Wer nicht gefunden wird, wird nicht angerufen.",
-    },
-    {
-      title: "==KI-Chatbot== rund um die Uhr",
-      body: "Dein Chatbot beantwortet Fragen und erfasst Anfragen, auch um 23 Uhr und am Sonntag. Du liest morgens, wer etwas wollte. Als Add-on zu jedem Paket: CHF 690 einmalig plus CHF 99 pro Monat.",
-    },
-    {
-      title: "Automationen, die dir Zeit geben",
-      body: "Formularanfragen landen direkt in deinem CRM, in bexio oder in Google Sheets. Auto-Antworten, Follow-ups und Bewertungsanfragen laufen von allein. Ab CHF 390 einmalig. Du tippst Offerten noch von Hand? Musst du nicht mehr.",
-    },
-    {
-      title: "Termine, Shop und mehr Sprachen",
-      body: "Online-Terminbuchung mit Bestätigungsmail, Shop- oder Buchungsanbindung und zusätzliche Sprachen wie Französisch oder Englisch. Einzeln dazubuchbar oder im Paket Signature inklusive. Damit deine Kunden dann buchen, wann es ihnen passt.",
+      title: "Künstliche Intelligenz",
+      body: "KI sinnvoll einsetzen, Prozesse optimieren und neue Möglichkeiten für dein Unternehmen erschliessen.",
     },
   ],
 };
@@ -272,6 +263,23 @@ export const portfolio = {
   ],
 };
 
+export const team = {
+  title: "Über uns",
+  sub: "Zwei Menschen hinter Lumina. Gemeinsam mit dir bringen wir dein Unternehmen digital weiter.",
+  members: [
+    {
+      name: "Calvin Pfrender",
+      role: "Gründer, Design und Entwicklung",
+      image: "",
+    },
+    {
+      name: "Luca Kummer",
+      role: "Gründer, Design, Marketing und Kundenkontakt",
+      image: "",
+    },
+  ],
+};
+
 export const founder = {
   title: "Wer hinter Lumina steht.",
   sub: "Kein Callcenter, keine Weitergabe an Praktikanten. Du redest mit dem, der deine Website baut.",
@@ -321,26 +329,26 @@ export const faq = {
 };
 
 export const closing = {
-  title: "Immer noch ==offline?==",
-  sub: "Die anderen sind schon online. Jetzt bist du dran. Das Einzige, was du verlieren kannst, ist Zeit.",
-  cta: "Gratis-Demo sichern",
+  title: "In einem Jahr wirst du froh sein, heute angefangen zu haben.",
+  sub: "Digitale Fortschritte entstehen nicht von allein. Lass uns gemeinsam den nächsten Schritt machen.",
+  cta: "Jetzt unverbindlich anfragen",
 };
 
 export const demo = {
-  title: "Gratis-Demo sichern",
-  hint: "Gratis. Unverbindlich. Wir melden uns schnell.",
-  response: "[ZU BESTÄTIGEN: Antwortzeit]",
-  note: "Die Anfrage öffnet dein E-Mail-Programm an contact@calvinpfrender.dev. Es wird nichts auf einem Server gespeichert.",
+  title: "Dein nächster Schritt beginnt hier.",
+  hint: "Lass uns herausfinden, wie wir dein Unternehmen digital weiterbringen können.",
+  note: "Die Anfrage öffnet dein E-Mail-Programm. Erst wenn du die E-Mail dort sendest, erreicht sie uns. Auf dieser Website werden deine Angaben nicht gespeichert.",
   fields: {
     firma: "Firmenname",
     branche: "Branche",
-    website: "Deine heutige Website, falls vorhanden",
+    website: "Deine Website (optional)",
+    message: "Was möchtest du verbessern?",
   },
 };
 
 export const footer = {
-  copy: "© 2026 Lumina · Webdesign für Schweizer KMU",
-  claim: "Sichtbar oder ==vergessen.==",
+  copy: "© 2026 Lumina · Digitalisierung für Schweizer KMU",
+  claim: "Websites. KI. Automationen.",
   impressum:
     "[PLATZHALTER: Seite /impressum, Name, Adresse, E-Mail, Pflicht nach UWG Art. 3 lit. s]",
   privacy: "[PLATZHALTER: Seite /datenschutz, revDSG]",
@@ -349,3 +357,28 @@ export const footer = {
 };
 
 export const email = "contact@calvinpfrender.dev";
+
+export const problem = {
+  title: "Jeden Tag gehen Chancen verloren. Oft unbemerkt.",
+  body: "Potenzielle Kunden finden deine Konkurrenz zuerst. Mitarbeitende erledigen Aufgaben, die längst automatisiert sein könnten. Während andere Unternehmen digital vorankommen, bleibt wertvolles Potenzial ungenutzt.",
+};
+
+export const approach = {
+  title:
+    "Dein Unternehmen braucht keine kompliziertere Technik. Sondern bessere Lösungen.",
+  body: "Wir verstehen deine Ziele, erkennen ungenutztes Potenzial und entwickeln digitale Lösungen, die dein Unternehmen langfristig voranbringen.",
+  steps: [
+    {
+      title: "Verstehen",
+      body: "Wir schauen gemeinsam auf deine Ziele und deinen Arbeitsalltag.",
+    },
+    {
+      title: "Vereinfachen",
+      body: "Wir setzen dort an, wo eine digitale Lösung wirklich etwas verbessert.",
+    },
+    {
+      title: "Umsetzen",
+      body: "Wir entwickeln die passende Lösung und begleiten dich bei der Einführung.",
+    },
+  ],
+};

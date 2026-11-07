@@ -11,10 +11,10 @@ export function Closing() {
           </h2>
           <p className="sub">{closing.sub}</p>
         </div>
-        <a className="giant" href="#gratis-demo">
+        <a className="btn btn-yellow" href="#kontakt">
           {closing.cta}
         </a>
-        <p className="mail-line">
+        <p className="closing-mail">
           oder schreib uns an <EmailLink />
         </p>
       </div>
