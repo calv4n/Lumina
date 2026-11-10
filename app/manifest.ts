@@ -4,16 +4,32 @@ export const dynamic = "force-static"; // nötig für output: "export"
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "Lumina — Websites & intelligente Lösungen",
+    name: "Lumina – Digitalisierung für Schweizer KMU",
     short_name: "Lumina",
+    description: "Websites, KI und Automationen für Schweizer KMU.",
     start_url: "/",
     display: "standalone",
-    background_color: "#ffffff",
+    background_color: "#171717",
     theme_color: "#171717",
     icons: [
-      { src: "/icon-192.png", sizes: "192x192", type: "image/png", purpose: "any" },
-      { src: "/icon-512.png", sizes: "512x512", type: "image/png", purpose: "any" },
-      { src: "/icon-512.png", sizes: "512x512", type: "image/png", purpose: "maskable" },
+      {
+        src: "/icon-192.png",
+        sizes: "192x192",
+        type: "image/png",
+        purpose: "any",
+      },
+      {
+        src: "/icon-512.png",
+        sizes: "512x512",
+        type: "image/png",
+        purpose: "any",
+      },
+      {
+        src: "/icon-512.png",
+        sizes: "512x512",
+        type: "image/png",
+        purpose: "maskable",
+      },
     ],
   };
 }
